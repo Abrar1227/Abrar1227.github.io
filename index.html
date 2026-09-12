@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amani Water Project — Clean water, close to home</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,450;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --teal-dark: #0F3D3E;
+    --teal-deeper: #0A2C2D;
+    --mist: #EAF3F0;
+    --gold: #C99A2E;
+    --charcoal: #1A2421;
+    --white: #FFFFFF;
+    --clay: #8B5E34;
+    --line: rgba(15,61,62,0.14);
+  }
+
+  *{ box-sizing: border-box; }
+
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin:0;
+    font-family: 'Inter', sans-serif;
+    color: var(--charcoal);
+    background: var(--mist);
+    line-height: 1.55;
+  }
+
+  h1, h2, h3, .display{
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+
+  a{ color: inherit; }
+
+  .wrap{
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ---------- NAV ---------- */
+  nav{
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: rgba(234,243,240,0.92);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner{
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 18px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap: 10px;
+    font-family:'Fraunces', serif;
+    font-weight: 600;
+    font-size: 1.15rem;
+  }
+  .brand svg{ flex-shrink:0; }
+  .nav-links{
+    display:flex;
+    gap: 32px;
+    font-size: 0.94rem;
+  }
+  .nav-links a{ text-decoration:none; }
+  .nav-links a:hover{ color: var(--teal-dark); text-decoration: underline; text-underline-offset:4px; }
+  .nav-cta{
+    background: var(--teal-dark);
+    color: var(--white);
+    padding: 9px 20px;
+    border-radius: 3px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+  .nav-cta:hover{ background: var(--teal-deeper); }
+
+  @media (max-width: 720px){
+    .nav-links{ display:none; }
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding: 88px 0 0;
+    overflow: hidden;
+  }
+  .hero-grid{
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 48px;
+    align-items: end;
+    padding-bottom: 56px;
+  }
+  .hero h1{
+    font-size: clamp(2.4rem, 4.6vw, 3.8rem);
+    line-height: 1.06;
+    max-width: 12ch;
+  }
+  .hero-sub{
+    margin-top: 22px;
+    font-size: 1.08rem;
+    max-width: 42ch;
+    color: #35443F;
+  }
+  .hero-actions{
+    margin-top: 32px;
+    display:flex;
+    gap: 18px;
+    align-items:center;
+    flex-wrap: wrap;
+  }
+  .btn-primary{
+    background: var(--gold);
+    color: var(--teal-deeper);
+    border: none;
+    padding: 14px 28px;
+    font-size: 0.98rem;
+    font-weight: 600;
+    border-radius: 3px;
+    cursor:pointer;
+    text-decoration:none;
+    display:inline-block;
+  }
+  .btn-primary:hover{ background: #B98A22; }
+  .btn-ghost{
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    font-size: 0.98rem;
+    color: var(--teal-dark);
+  }
+
+  .hero-stat{
+    text-align: right;
+    border-left: 1px solid var(--line);
+    padding-left: 40px;
+  }
+  .hero-stat .num{
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(3.2rem, 8vw, 6rem);
+    line-height: 0.9;
+    color: var(--teal-dark);
+    display:block;
+  }
+  .hero-stat .cap{
+    display:block;
+    margin-top: 10px;
+    font-size: 0.98rem;
+    color: #4A5750;
+    max-width: 26ch;
+    margin-left: auto;
+  }
+
+  @media (max-width: 800px){
+    .hero-grid{ grid-template-columns: 1fr; }
+    .hero-stat{ text-align:left; border-left:none; padding-left:0; border-top: 1px solid var(--line); padding-top: 24px; }
+    .hero-stat .cap{ margin-left:0; }
+  }
+
+  .wave{
+    display:block;
+    width: 100%;
+    height: auto;
+  }
+
+  .hero-illus-wrap{
+    padding-top: 8px;
+  }
+  .hero-illus{
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* ---------- PROBLEM ---------- */
+  .band-dark{
+    background: var(--teal-dark);
+    color: var(--white);
+    padding: 72px 0;
+  }
+  .band-dark h2{
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+    max-width: 20ch;
+    color: var(--white);
+  }
+  .facts{
+    margin-top: 44px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+  .fact .num{
+    font-family:'Fraunces', serif;
+    font-weight: 300;
+    font-size: 2.6rem;
+    color: var(--gold);
+  }
+  .fact p{
+    margin: 10px 0 0;
+    font-size: 0.96rem;
+    color: rgba(255,255,255,0.82);
+    max-width: 30ch;
+  }
+  @media (max-width: 720px){
+    .facts{ grid-template-columns: 1fr; gap: 28px; }
+  }
+
+  /* ---------- STORY ---------- */
+  .story{
+    padding: 96px 0;
+  }
+  .story-grid{
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 64px;
+  }
+  .story h2{
+    font-size: clamp(1.7rem, 3vw, 2.2rem);
+    line-height: 1.15;
+  }
+  .story-illus{
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin-top: 32px;
+    display: block;
+  }
+  .story-body p{
+    font-size: 1.02rem;
+    color: #2C3833;
+    max-width: 56ch;
+  }
+  .story-body p + p{ margin-top: 18px; }
+  .pull{
+    margin-top: 28px;
+    padding-left: 22px;
+    border-left: 3px solid var(--gold);
+    font-family: 'Fraunces', serif;
+    font-size: 1.2rem;
+    font-weight: 450;
+    font-style: italic;
+    color: var(--teal-dark);
+    max-width: 46ch;
+  }
+  @media (max-width: 800px){
+    .story-grid{ grid-template-columns: 1fr; gap: 28px; }
+  }
+
+  /* ---------- PROCESS ---------- */
+  .process{
+    background: var(--white);
+    padding: 96px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .process h2{
+    font-size: clamp(1.7rem, 3vw, 2.2rem);
+    max-width: 18ch;
+  }
+  .steps{
+    margin-top: 52px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+  .step{
+    padding: 0 28px 0 0;
+    border-right: 1px solid var(--line);
+  }
+  .step:last-child{ border-right:none; padding-right:0; }
+  .step .idx{
+    font-family:'Fraunces', serif;
+    font-size: 1rem;
+    color: var(--gold);
+    font-weight: 600;
+  }
+  .step h3{
+    margin-top: 14px;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+  .step p{
+    margin-top: 10px;
+    font-size: 0.95rem;
+    color: #4A5750;
+  }
+  @media (max-width: 800px){
+    .steps{ grid-template-columns: 1fr; gap: 32px; }
+    .step{ border-right:none; padding-right:0; border-bottom: 1px solid var(--line); padding-bottom: 28px; }
+    .step:last-child{ border-bottom:none; padding-bottom:0; }
+  }
+
+  /* ---------- DONATE CTA ---------- */
+  .cta-band{
+    background: var(--teal-deeper);
+    color: var(--white);
+    padding: 88px 0;
+    text-align: center;
+  }
+  .cta-band h2{
+    color: var(--white);
+    font-size: clamp(1.9rem, 4vw, 2.8rem);
+    max-width: 18ch;
+    margin: 0 auto;
+  }
+  .cta-band p{
+    margin: 18px auto 0;
+    max-width: 46ch;
+    color: rgba(255,255,255,0.78);
+  }
+  .cta-band .btn-primary{
+    margin-top: 32px;
+  }
+  .amount-row{
+    margin-top: 36px;
+    display:flex;
+    justify-content:center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .amount{
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.3);
+    color: var(--white);
+    padding: 10px 22px;
+    border-radius: 3px;
+    font-size: 0.94rem;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+  }
+  .amount.active, .amount:hover{
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    background: var(--mist);
+    padding: 56px 0 40px;
+  }
+  .footer-grid{
+    display:flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 24px;
+    border-top: 1px solid var(--line);
+    padding-top: 32px;
+  }
+  .footer-grid .brand{ font-size: 1rem; }
+  .foot-links{
+    display:flex;
+    gap: 28px;
+    font-size: 0.88rem;
+    color: #4A5750;
+  }
+  .foot-links a{ text-decoration:none; }
+  .foot-links a:hover{ text-decoration:underline; }
+  .foot-note{
+    margin-top: 24px;
+    font-size: 0.82rem;
+    color: #6B776F;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="brand">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+        <path d="M12 2C12 2 5 11 5 15.5C5 19.6 8.13 22 12 22C15.87 22 19 19.6 19 15.5C19 11 12 2 12 2Z" fill="#0F3D3E"/>
+      </svg>
+      Amani Water Project
+    </div>
+    <div class="nav-links">
+      <a href="#problem">The Problem</a>
+      <a href="#story">Our Work</a>
+      <a href="#process">How It Works</a>
+    </div>
+    <a class="nav-cta" href="#give">Give Water</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1>A well changes<br>everything.</h1>
+      <p class="hero-sub">We drill wells and train local water committees in rural East Africa, so a family's day no longer starts with a six-hour walk for water that might make them sick.</p>
+      <div class="hero-actions">
+        <a href="#give" class="btn-primary">Fund a well</a>
+        <a href="#story" class="btn-ghost">Read Amina's story</a>
+      </div>
+    </div>
+    <div class="hero-stat">
+      <span class="num">6 hrs</span>
+      <span class="cap">the average time women and girls spend walking for water each day, in the villages where we work</span>
+    </div>
+  </div>
+
+  <div class="wrap hero-illus-wrap">
+    <svg class="hero-illus" viewBox="0 0 1040 260" xmlns="http://www.w3.org/2000/svg">
+      <!-- ground -->
+      <path d="M0,220 Q260,200 520,218 T1040,214 L1040,260 L0,260 Z" fill="#DCE8E2"/>
+      <!-- figure carrying water -->
+      <g transform="translate(120,60)">
+        <circle cx="40" cy="18" r="16" fill="#8B5E34"/>
+        <path d="M40,34 C24,34 14,50 16,72 L20,140 L60,140 L64,72 C66,50 56,34 40,34 Z" fill="#0F3D3E"/>
+        <path d="M14,78 L-6,150" stroke="#0F3D3E" stroke-width="8" stroke-linecap="round"/>
+        <path d="M66,78 L86,150" stroke="#0F3D3E" stroke-width="8" stroke-linecap="round"/>
+        <path d="M22,140 L14,196" stroke="#1A2421" stroke-width="9" stroke-linecap="round"/>
+        <path d="M58,140 L66,196" stroke="#1A2421" stroke-width="9" stroke-linecap="round"/>
+        <!-- water jug on head -->
+        <path d="M22,4 C22,-14 58,-14 58,4 L58,14 C58,20 22,20 22,14 Z" fill="#C99A2E"/>
+        <rect x="34" y="-18" width="12" height="8" rx="2" fill="#C99A2E"/>
+      </g>
+      <!-- well structure -->
+      <g transform="translate(620,60)">
+        <rect x="0" y="110" width="140" height="18" rx="3" fill="#8B5E34"/>
+        <rect x="10" y="40" width="14" height="76" fill="#8B5E34"/>
+        <rect x="116" y="40" width="14" height="76" fill="#8B5E34"/>
+        <rect x="0" y="30" width="140" height="14" rx="3" fill="#0F3D3E"/>
+        <path d="M70,44 L70,10" stroke="#1A2421" stroke-width="4"/>
+        <circle cx="70" cy="10" r="10" fill="none" stroke="#1A2421" stroke-width="4"/>
+        <ellipse cx="70" cy="121" rx="55" ry="9" fill="#0A2C2D" opacity="0.15"/>
+      </g>
+      <!-- child figure at well -->
+      <g transform="translate(760,110)">
+        <circle cx="18" cy="10" r="11" fill="#0F3D3E"/>
+        <path d="M18,20 C8,20 2,32 4,48 L6,80 L30,80 L32,48 C34,32 28,20 18,20 Z" fill="#C99A2E"/>
+        <path d="M8,50 L-6,78" stroke="#C99A2E" stroke-width="6" stroke-linecap="round"/>
+        <path d="M28,50 L42,78" stroke="#C99A2E" stroke-width="6" stroke-linecap="round"/>
+        <path d="M10,80 L6,112" stroke="#1A2421" stroke-width="6" stroke-linecap="round"/>
+        <path d="M26,80 L30,112" stroke="#1A2421" stroke-width="6" stroke-linecap="round"/>
+      </g>
+      <!-- droplets -->
+      <path d="M700,90 C700,84 706,78 706,78 C706,78 712,84 712,90 C712,94 709,97 706,97 C703,97 700,94 700,90 Z" fill="#3E7C7A"/>
+    </svg>
+  </div>
+
+  <svg class="wave" viewBox="0 0 1440 100" preserveAspectRatio="none">
+    <path d="M0,40 C240,90 480,0 720,35 C960,70 1200,10 1440,45 L1440,100 L0,100 Z" fill="#0F3D3E"/>
+  </svg>
+</section>
+
+<section class="band-dark" id="problem">
+  <div class="wrap">
+    <h2>Clean water isn't rare because it's scarce. It's rare because it's hard to reach.</h2>
+    <div class="facts">
+      <div class="fact">
+        <span class="num">703M</span>
+        <p>people worldwide still lack access to a clean water source close to home.</p>
+      </div>
+      <div class="fact">
+        <span class="num">$60</span>
+        <p>is roughly what it costs us to bring one more person clean water for life.</p>
+      </div>
+      <div class="fact">
+        <span class="num">1 in 3</span>
+        <p>schools in the regions we serve have no water source on site at all.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="story" id="story">
+  <div class="wrap story-grid">
+    <div>
+      <h2>We don't drop in a pump and leave.</h2>
+      <svg class="story-illus" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="150" cy="150" r="140" fill="#DCE8E2"/>
+        <g transform="translate(95,70)">
+          <circle cx="55" cy="24" r="22" fill="#8B5E34"/>
+          <path d="M55,46 C30,46 14,70 18,104 L24,190 L86,190 L92,104 C96,70 80,46 55,46 Z" fill="#0F3D3E"/>
+          <path d="M14,110 L110,110" stroke="#0F3D3E" stroke-width="0" />
+          <!-- child -->
+          <circle cx="20" cy="150" r="14" fill="#0A2C2D"/>
+          <path d="M20,164 C8,164 2,178 5,196 L8,230 L32,230 L35,196 C38,178 32,164 20,164 Z" fill="#C99A2E"/>
+        </g>
+        <path d="M60,230 Q150,250 240,228" stroke="#3E7C7A" stroke-width="4" fill="none" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="story-body">
+      <p>Amani Water Project works alongside communities in Kenya, Uganda, and Ethiopia to build wells that last for decades, not seasons. Every project starts with a hydrogeological survey, includes a trained local water committee, and comes with a maintenance fund the community controls.</p>
+      <p>Amina Wanjiru, a mother of four in Turkana County, used to leave home before sunrise to reach the nearest water point. Since her village's well opened in 2023, she runs a small vegetable garden with the time she used to spend walking.</p>
+      <p class="pull">"My daughters go to school now instead of carrying water. That's the whole difference."</p>
+    </div>
+  </div>
+</section>
+
+<section class="process" id="process">
+  <div class="wrap">
+    <h2>From dry ground to running water</h2>
+    <div class="steps">
+      <div class="step">
+        <span class="idx">01</span>
+        <h3>Survey the site</h3>
+        <p>Local hydrogeologists identify a reliable groundwater source and confirm it won't run dry within the decade.</p>
+      </div>
+      <div class="step">
+        <span class="idx">02</span>
+        <h3>Drill and build</h3>
+        <p>A local drilling crew installs the well and hand pump, hiring workers from the community wherever possible.</p>
+      </div>
+      <div class="step">
+        <span class="idx">03</span>
+        <h3>Train and hand over</h3>
+        <p>A community water committee is trained on upkeep and given a repair fund, so the well stays running for good.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band" id="give">
+  <div class="wrap">
+    <h2>Give someone their morning back.</h2>
+    <p>Every gift goes directly toward drilling, training, and maintaining wells in the communities that need them most.</p>
+    <div class="amount-row">
+      <button class="amount">$25</button>
+      <button class="amount active">$60</button>
+      <button class="amount">$150</button>
+      <button class="amount">Other</button>
+    </div>
+    <br>
+    <a href="#" class="btn-primary">Donate now</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="brand">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path d="M12 2C12 2 5 11 5 15.5C5 19.6 8.13 22 12 22C15.87 22 19 19.6 19 15.5C19 11 12 2 12 2Z" fill="#0F3D3E"/>
+        </svg>
+        Amani Water Project
+      </div>
+      <div class="foot-links">
+        <a href="#problem">The Problem</a>
+        <a href="#story">Our Work</a>
+        <a href="#process">How It Works</a>
+        <a href="#give">Donate</a>
+      </div>
+    </div>
+    <p class="foot-note">Amani Water Project is a placeholder organization created for this template. Replace the name, statistics, photos, and donation link with your own before publishing.</p>
+  </div>
+</footer>
+
+</body>
+</html>
